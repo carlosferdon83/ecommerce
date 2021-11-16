@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS producto;
+
+CREATE TABLE producto(
+    id VARCHAR(250) PRIMARY KEY,
+    nombre VARCHAR(250) NOT NULL,
+    sku VARCHAR(250) NOT NULL,
+    precio DOUBLE NOT NULL,
+    descripcion VARCHAR(250) NOT NULL,
+    tipo VARCHAR(250) NOT NULL,
+    stock INT NOT NULL
+);
