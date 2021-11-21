@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/v1/product")
@@ -22,13 +23,13 @@ class ProductController {
     }
 
     @PostMapping("/products")
-    fun createProduct(@RequestBody payload : ProductDTO) : ResponseEntity<Product> {
+    fun createProduct(@Valid @RequestBody payload : ProductDTO) : ResponseEntity<Product> {
         var product = productService.createProduct(payload)
         return ResponseEntity<Product>(product, HttpStatus.OK)
     }
 
     @PutMapping("/products/{id}")
-    fun updateProduct(@PathVariable("id") id : String, @RequestBody payload: ProductDTO) : ResponseEntity<Product>{
+    fun updateProduct(@PathVariable("id") id : String, @Valid @RequestBody payload: ProductDTO) : ResponseEntity<Product>{
         var product = productService.updateProduct(id,payload)
         return ResponseEntity<Product>(product, HttpStatus.OK)
     }

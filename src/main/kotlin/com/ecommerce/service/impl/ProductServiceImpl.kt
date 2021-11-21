@@ -18,6 +18,9 @@ open class ProductServiceImpl : ProductService {
     lateinit var productRepository : ProductRepository
 
     override fun createProduct(productDTO: ProductDTO): Product {
+        if(productDTO.type == "PROMOCION"){
+            productDTO.price = productDTO.price / 2
+        }
         return productRepository.save(Utils.getProduct(productDTO))
     }
 
@@ -26,7 +29,7 @@ open class ProductServiceImpl : ProductService {
     }
 
     override fun updateProduct(idProduct: String, productDTO: ProductDTO): Product {
-        val product = Product(idProduct,productDTO.name,productDTO.description,productDTO.sku,productDTO.price,productDTO.stock,productDTO.type)
+        val product = Utils.getProduct(productDTO)
         return if(productRepository.existsById(idProduct)){
             productRepository.save(product)
         }else throw ProductNotFoundException(HttpStatus.NOT_FOUND,"No matching product was found")

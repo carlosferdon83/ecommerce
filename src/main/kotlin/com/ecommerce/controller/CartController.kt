@@ -1,5 +1,6 @@
 package com.ecommerce.controller
 
+import com.ecommerce.dto.ApiResponseDTO
 import com.ecommerce.dto.CartItemDTO
 import com.ecommerce.model.Cart
 import com.ecommerce.model.Cartitem
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/v1/cart")
@@ -22,9 +24,9 @@ class CartController {
     lateinit var cartitemService : CartitemService
 
     @PostMapping("/create")
-    fun createCart(@RequestBody payload : MutableIterable<CartItemDTO>) : ResponseEntity<Cart> {
-        var cart = cartService.createCart(payload)
-        return ResponseEntity<Cart>(cart, HttpStatus.CREATED)
+    fun createCart(@Valid @RequestBody payload : MutableIterable<CartItemDTO>) : ResponseEntity<ApiResponseDTO> {
+        var apiResponseDTO = cartService.createCart(payload)
+        return ResponseEntity<ApiResponseDTO>(apiResponseDTO, HttpStatus.CREATED)
     }
 
     @GetMapping("/carts")

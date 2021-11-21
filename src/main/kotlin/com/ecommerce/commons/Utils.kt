@@ -1,5 +1,6 @@
 package com.ecommerce.commons
 
+import com.ecommerce.dto.ApiResponseDTO
 import com.ecommerce.dto.CartItemDTO
 import com.ecommerce.dto.ProductDTO
 import com.ecommerce.enums.CartStatus
@@ -44,6 +45,13 @@ open class Utils {
         fun getUUID() : String{
             val uuid = UUID.randomUUID()
             return uuid.toString()
+        }
+
+        fun getResponse(status : String, detail : String) : ApiResponseDTO{
+            val apiResponseDTO = ApiResponseDTO()
+            apiResponseDTO.status = status
+            apiResponseDTO.details = detail
+            return apiResponseDTO
         }
     }
 
