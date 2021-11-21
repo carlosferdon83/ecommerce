@@ -1,23 +1,49 @@
 package com.ecommerce.commons
 
+import com.ecommerce.dto.CartItemDTO
 import com.ecommerce.dto.ProductDTO
+import com.ecommerce.enums.CartStatus
+import com.ecommerce.model.Cart
+import com.ecommerce.model.Cartitem
 import com.ecommerce.model.Product
-import java.util.*
+import java.util.UUID;
 
-class Utils {
+open class Utils {
 
-    companion object Products{
-        fun getProduct(productDTO : ProductDTO) : Product{
-            val uuid = UUID.randomUUID()
+    companion object Process{
+        fun getProduct(productDTO : ProductDTO) : Product {
             val product = Product()
-            product.id = uuid.toString()
-            product.nombre = productDTO.nombre
-            product.precio = productDTO.precio
+            product.id = getUUID()
+            product.name = productDTO.name
+            product.price = productDTO.price
             product.sku = productDTO.sku
-            product.descripcion = productDTO.descripcion
-            product.tipo = productDTO.tipo
+            product.description = productDTO.description
+            product.type = productDTO.type
             product.stock = productDTO.stock
             return product
+        }
+
+        fun getCart() : Cart {
+            val cart = Cart()
+            cart.id = getUUID()
+            cart.totalPrice = 0.0
+            cart.status = CartStatus.CREATED.status
+            return cart
+        }
+
+        fun getCartItem(cartItemDTO: CartItemDTO, cart : Cart, product: Product) : Cartitem {
+            val cartitem = Cartitem()
+            cartitem.product= product
+            cartitem.quantity = cartItemDTO.quantity
+            cartitem.cart = cart
+            cartitem.id = getUUID()
+            cartitem.price = cartitem.quantity * product.price
+            return cartitem
+        }
+
+        fun getUUID() : String{
+            val uuid = UUID.randomUUID()
+            return uuid.toString()
         }
     }
 

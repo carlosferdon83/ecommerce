@@ -1,17 +1,18 @@
-package com.ecommerce.service
+package com.ecommerce.service.impl
 
 import com.ecommerce.commons.Utils
 import com.ecommerce.dto.ProductDTO
 import com.ecommerce.exceptions.ProductNotFoundException
 import com.ecommerce.model.Product
 import com.ecommerce.repository.ProductRepository
+import com.ecommerce.service.ProductService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 
 
 @Service
-class ProductServiceImpl : ProductService {
+open class ProductServiceImpl : ProductService {
 
     @Autowired
     lateinit var productRepository : ProductRepository
@@ -25,18 +26,9 @@ class ProductServiceImpl : ProductService {
     }
 
     override fun updateProduct(idProduct: String, productDTO: ProductDTO): Product {
+        val product = Product(idProduct,productDTO.name,productDTO.description,productDTO.sku,productDTO.price,productDTO.stock,productDTO.type)
         return if(productRepository.existsById(idProduct)){
-            productRepository.save(
-                Product(
-                    id = idProduct,
-                    nombre = productDTO.nombre,
-                    precio = productDTO.precio,
-                    sku = productDTO.sku,
-                    descripcion = productDTO.descripcion,
-                    tipo = productDTO.tipo,
-                    stock = productDTO.stock
-                )
-            )
+            productRepository.save(product)
         }else throw ProductNotFoundException(HttpStatus.NOT_FOUND,"No matching product was found")
     }
 

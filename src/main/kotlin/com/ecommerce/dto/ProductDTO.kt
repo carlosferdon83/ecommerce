@@ -1,10 +1,10 @@
 package com.ecommerce.dto
 
 data class ProductDTO(
-    val nombre: String,
+    val name: String,
     val sku: String,
-    val precio: Double,
-    val descripcion: String,
-    val tipo: String,
-    val stock: Int
+    val price: Double,
+    val description: String,
+    val type: String,
+    val stock: Long
 )
