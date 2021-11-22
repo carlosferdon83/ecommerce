@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "1adf8706-da0f-42a4-8cb6-dd960f209270",
+		"name": "TestTul",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateCart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"product\":\"35d0c764-9202-4c38-a20b-1edb1b2098c3\",\r\n        \"quantity\": 1\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/api/v1/cart/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"api",
+						"v1",
+						"cart",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarProducto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"CORREA DE ACCESORIOS\",\r\n    \"sku\": \"COR-AAXC\",\r\n    \"price\": 270000.0,\r\n    \"description\": \"CORREA DE ACCESORIOS ACDELCO\",\r\n    \"type\": \"SIN PROMOCION\",\r\n    \"stock\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/api/v1/product/products/3eeb9d3c-904e-4f1c-ad7b-7e73d9168393",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"api",
+						"v1",
+						"product",
+						"products",
+						"3eeb9d3c-904e-4f1c-ad7b-7e73d9168393"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/api/v1/product/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"api",
+						"v1",
+						"product",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllCarts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/api/v1/cart/carts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"api",
+						"v1",
+						"cart",
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearProducto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"SENSORES\",\r\n    \"sku\":\"COR-AAXC\",\r\n    \"price\": 240000,\r\n    \"description\":\"SENSORES DE OXIGENO\",\r\n    \"type\":\"SIN PROMOCION\",\r\n    \"stock\": 8\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/api/v1/product/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"api",
+						"v1",
+						"product",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarProducto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/api/v1/product/products/33dc9860-d17f-4d8f-aff4-54cba0013b55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"api",
+						"v1",
+						"product",
+						"products",
+						"33dc9860-d17f-4d8f-aff4-54cba0013b55"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
