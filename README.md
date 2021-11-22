@@ -14,7 +14,7 @@ con Intellij IDEA Comunity. No se requiere realizar ninguna configuracion extra,
 ## Ejecutando las pruebas ⚙️
 
 _Se debe gestionar primero los productos, posteriormente gestionar el carrito de compra.Para probar la ejecucion del microservicio, se habilitó la documentacion proveida por swagger, una
-vez se inicie el servicio se podrá acceder al apí de pruebas http://localhost:8080/ecommerce/swagger-ui.html_
+vez se inicie el servicio se podrá acceder al apí de pruebas http://localhost:8080/ecommerce/swagger-ui.html, de igual manera se adjunta coleccion en Postman_
 
 ## Construido con 🛠️
 
