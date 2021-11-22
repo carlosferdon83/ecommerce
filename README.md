@@ -32,6 +32,6 @@ _A continuacion se relaciona las tecnologias utilizadas para el desarrollo_
 
 ## Saludos 🎁
 
-* Agradezco la oportunidad de participar  parte de
+* Agradezco la oportunidad de participar  parte de este proceso
 
 ---
